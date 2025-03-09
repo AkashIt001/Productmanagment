@@ -1,0 +1,179 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model List<Product>
+
+<div class="text-center">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Welcome Page</title>
+        <style>
+            body {
+                color: #333;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+                font-family: 'Arial', sans-serif;
+                background-color: #f8f9fa;
+            }
+
+            .header-box {
+                background: rgba(255, 255, 255, 0.8);
+                backdrop-filter: blur(5px);
+                border-radius: 12px;
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                padding: 25px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                margin: 50px auto;
+                width: 70%;
+                transition: 0.3s;
+            }
+
+                .header-box h1 {
+                    font-size: 42px;
+                    font-weight: bold;
+                    color: #007bff;
+                    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+                    text-transform: uppercase;
+                }
+
+                .header-box p {
+                    font-size: 18px;
+                    color: #555;
+                }
+
+                .header-box:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+                }
+
+            .table-container {
+                margin-top: 30px;
+                background-color: #fff;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                width: 100%;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+
+            thead th {
+                background-color: #007bff;
+                color: white;
+                padding: 12px;
+                text-align: center;
+                font-size: 11px;
+            }
+
+            tbody td {
+                padding: 5px;
+                text-align: center;
+                border-bottom: 1px solid #ddd;
+                font-size: 11px;
+            }
+
+            tbody tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            tbody tr:hover {
+                background-color: #e2e6ea;
+            }
+
+            .footer {
+                margin-top: 50px;
+                font-size: 14px;
+                color: #555;
+            }
+
+                .footer a {
+                    color: #007bff;
+                    text-decoration: none;
+                }
+
+                    .footer a:hover {
+                        text-decoration: underline;
+                    }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="header-box">
+                <h1>Welcome To Our Website</h1>
+                <p>Browse and manage your orders easily</p>
+            </div>
+            <div class="table-container">
+                <h2 class="display-5 text-center text-primary">Product Order Managmet Details</h2>
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Customer Id</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Phone Number</th>
+                            <th>Order ID</th>
+                            <th>Order Date Time</th>
+                            <th>Order Details</th>
+                            <th>Order Status</th>
+                            <th>Mouse Price</th>
+                            <th>Pen Price</th>
+                            <th>TV Price</th>
+                            <th>Book Price</th>
+                            <th>Mobile Price</th>
+                            <th>Mouse Quantity</th>
+                            <th>Pen Quantity</th>
+                            <th>TV Quantity</th>
+                            <th>Book Quantity</th>
+                            <th>Mobile Quantity</th>
+                            <th>Total Price</th>
+                            <th>5% Discounted Price</th>
+                            <th>Net Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var itm in Model)
+                        {
+                            <tr>
+                                <td>@itm.CustomerId</td>
+                                <td>@itm.Name</td>
+                                <td>@itm.Address</td>
+                                <td>@itm.PhoneNumber</td>
+                                <td>@itm.OrderId</td>
+                                <td>@itm.OrderDateTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                                <td>@itm.OrderDetails</td>
+                                <td>@itm.OrderStatus</td>
+                                <td>@itm.Mouse</td>
+                                <td>@itm.Pen</td>
+                                <td>@itm.TV</td>
+                                <td>@itm.Book</td>
+                                <td>@itm.Mobile</td>
+                                <td>@itm.MouseQuantity</td>
+                                <td>@itm.PenQuantity</td>
+                                <td>@itm.TVQuantity</td>
+                                <td>@itm.BookQuantity</td>
+                                <td>@itm.MobileQuantity</td>
+                                <td>@itm.TTlPrice</td>
+                                <td>@itm.DiscountedPrice</td>
+                                <td>@itm.NetPrice</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="footer text-center">
+                <p>Course By <a href="https://learn.microsoft.com/aspnet/core">ICTBD, Student MD. Akash Ali Khan</a></p>
+            </div>
+        </div>
+    </body>
+</div>
